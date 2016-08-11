@@ -1,16 +1,15 @@
 # Usage display example
 
 ```sh
-> program
+\> program
 usage: program <command>
 
 Available commands are:
     cmd        some random command
     cmd2       another random command
     foocmd     another one, it's another one!
-```
-```sh
-> program cmd
+
+\> program cmd
 usage: program cmd <requiredArg> [<optionalArg>] [<optionalArg2>]
 
 Arguments are:
