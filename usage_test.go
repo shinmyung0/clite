@@ -1,4 +1,4 @@
-package goformat
+package gohelp
 
 import (
 	"fmt"
