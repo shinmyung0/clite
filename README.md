@@ -1,7 +1,7 @@
 # Usage display example
 
-```sh
-\> program
+```zsh
+> program
 usage: program <command>
 
 Available commands are:
@@ -9,7 +9,7 @@ Available commands are:
     cmd2       another random command
     foocmd     another one, it's another one!
 
-\> program cmd
+> program cmd
 usage: program cmd <requiredArg> [<optionalArg>] [<optionalArg2>]
 
 Arguments are:
