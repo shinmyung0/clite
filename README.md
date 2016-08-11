@@ -1,6 +1,8 @@
 # Usage display example
 
-```zsh
+Main program usage text
+
+```bash
 > program
 usage: program <command>
 
@@ -9,6 +11,11 @@ Available commands are:
     cmd2       another random command
     foocmd     another one, it's another one!
 
+```
+
+Usage text format per command
+
+```bash
 > program cmd
 usage: program cmd <requiredArg> [<optionalArg>] [<optionalArg2>]
 
