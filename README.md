@@ -1,6 +1,6 @@
 # clite
 
-Super simple cli library. You just declare what commands and arguments you have in a simple syntax.
+Super simple cli library for golang. You just declare what commands and arguments you have in a simple syntax.
 It doesn't handle flags (yet!), but personally I don't like them anyways because often times they
 flags just aren't very descriptive.
 
@@ -76,6 +76,6 @@ The format is heavily influenced by [Hashicorp's cli tool](https://github.com/mi
 
 
 
-# Todo
+# Possible Todo
 - Add flags
 - Add dependent arguments (ie. an argument that is optional but only to be used in conjunction with another argument)
