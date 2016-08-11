@@ -58,3 +58,7 @@ func main() {
 }
 
 ```
+
+# Todo
+- Add flags
+- Add dependent arguments (ie. an argument that is optional but only to be used in conjunction with another argument)
