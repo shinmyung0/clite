@@ -24,18 +24,18 @@ type Arg struct {
 	required bool
 }
 
-type CommandHandler func([]string)
+type CommandHandler func([]string) int
 
 const DELIM = "    "
 
-func (p *Program) Run(args []string) {
+func (p *Program) Run(args []string) int {
 
 	if len(args) > 0 {
 		cmd := args[0]
 		cmdObj, ok := p.Commands[cmd]
 		if ok {
 			if cmdObj.validate(args[1:]) {
-				cmdObj.Handler(args[1:])
+				return cmdObj.Handler(args[1:])
 			} else {
 				fmt.Println(cmdObj.String())
 			}
@@ -44,9 +44,8 @@ func (p *Program) Run(args []string) {
 		}
 	} else {
 		fmt.Println(p.String())
-
 	}
-
+	return 1
 }
 
 func NewProgram(name string) *Program {

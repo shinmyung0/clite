@@ -22,9 +22,9 @@ import (
 
 func main() {
     prog := goformat.Program("program")
-    prog.HasCommand("cmd", "some random command", CmdHandler)
-    prog.HasCommand("cmd2", "another random command", Cmd2Handler)
-    prog.HasCommand("fooCmd", "another one, it's another one!", FooCmdHandler)
+    prog.HasCommand("cmd", "some random command", HandlerFn)
+    prog.HasCommand("cmd2", "another random command", HandlerFm)
+    prog.HasCommand("fooCmd", "another one, it's another one!", HandlerFn)
 
     cmd := prog.Command("cmd")
     cmd.HasRequiredArg("required", "some argument that is required to run the command")
@@ -38,8 +38,13 @@ func main() {
 
     args := os.Args[1:]
     // Assumes that the slice doesn't include the execution path
-    prog.Run(args)
+    // also returns an exit code as an int, which should be returned by the handlers
+    os.Exit(prog.Run(args))
 
+}
+
+func HandlerFn(args []string) int {
+    return 0
 }
 
 ```

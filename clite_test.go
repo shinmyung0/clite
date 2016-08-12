@@ -2,13 +2,11 @@ package clite
 
 import "testing"
 
-func handler(args []string) {
-	lastCalled = args
+func handler(args []string) int {
+	return len(args)
 }
 
 var prog *Program
-
-var lastCalled []string
 
 func init() {
 	prog = NewProgram("program")
@@ -42,15 +40,15 @@ func TestCommandFormat(t *testing.T) {
 }
 
 func TestRunCommand(t *testing.T) {
-	prog.Run([]string{"cmd", "testing"})
-	if len(lastCalled) != 1 {
+	result := prog.Run([]string{"cmd", "testing"})
+	if result != 1 {
 		t.Error("Wrong number of arguments detected")
 	}
 }
 
 func TestRunCommandFailed(t *testing.T) {
-	prog.Run([]string{"noncmd", "testing", "2ndarg"})
-	if len(lastCalled) == 2 {
+	result := prog.Run([]string{"noncmd", "testing", "2ndarg"})
+	if result == 2 {
 		t.Error("Handler called for non existant command")
 	}
 }
