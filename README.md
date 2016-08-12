@@ -21,7 +21,7 @@ import (
 )
 
 func main() {
-    prog := goformat.Program("program")
+    prog := clite.NewProgram("program")
     prog.HasCommand("cmd", "some random command", HandlerFn)
     prog.HasCommand("cmd2", "another random command", HandlerFm)
     prog.HasCommand("fooCmd", "another one, it's another one!", HandlerFn)
@@ -34,9 +34,9 @@ func main() {
     cmd.HasOptionalArg("optionalArg2", "some argument that is also optional")
 
     // Will print main usage text
-    fmt.Print(format)
+    fmt.Println(format)
     // Will print usage text for cmd
-    fmt.Print(format.ForCommand("cmd"))
+    fmt.Println(format.ForCommand("cmd"))
 
     args := os.Args[1:]
     // Assumes that the slice doesn't include the execution path
@@ -84,5 +84,5 @@ The format is heavily influenced by [Hashicorp's cli tool](https://github.com/mi
 
 
 # Possible Todo
-- Add flags
+- Add flags (maybe!)
 - Add dependent arguments (ie. an argument that is optional but only to be used in conjunction with another argument)
