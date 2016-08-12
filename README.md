@@ -27,6 +27,8 @@ func main() {
     prog.HasCommand("fooCmd", "another one, it's another one!", HandlerFn)
 
     cmd := prog.Command("cmd")
+    // This is mainly for setting up the command specific usage texts
+    // As well as simple validation that the user passes in numRequired <= len(args) <= numTotal arguments
     cmd.HasRequiredArg("required", "some argument that is required to run the command")
     cmd.HasOptionalArg("optionalArg", "some argument that is optional")
     cmd.HasOptionalArg("optionalArg2", "some argument that is also optional")
@@ -51,7 +53,7 @@ func HandlerFn(args []string) int {
 
 # Usage display example
 
-1. Program usage text
+1. Main program usage text
 
 ```
 > program
@@ -64,7 +66,7 @@ Available commands are:
 
 ```
 
-2. Usage text format per command
+2. Command specific usage text
 
 ```
 > program cmd
