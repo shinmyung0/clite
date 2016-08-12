@@ -29,17 +29,24 @@ type CommandHandler func([]string)
 const DELIM = "    "
 
 func (p *Program) Run(args []string) {
-	cmd := args[0]
-	cmdObj, ok := p.Commands[cmd]
-	if ok {
-		if cmdObj.validate(args[1:]) {
-			cmdObj.Handler(args[1:])
+
+	if len(args) > 0 {
+		cmd := args[0]
+		cmdObj, ok := p.Commands[cmd]
+		if ok {
+			if cmdObj.validate(args[1:]) {
+				cmdObj.Handler(args[1:])
+			} else {
+				fmt.Println(cmdObj.String())
+			}
 		} else {
-			fmt.Println(cmdObj.String())
+			fmt.Println(p.String())
 		}
 	} else {
 		fmt.Println(p.String())
+
 	}
+
 }
 
 func NewProgram(name string) *Program {
