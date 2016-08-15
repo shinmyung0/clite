@@ -21,17 +21,17 @@ import (
 )
 
 func main() {
-    prog := clite.NewProgram("program")
-    prog.HasCommand("cmd", "some random command", HandlerFn)
-    prog.HasCommand("cmd2", "another random command", HandlerFm)
-    prog.HasCommand("fooCmd", "another one, it's another one!", HandlerFn)
+    prog := clite.NewProgram("program").
+        HasCommand("cmd", "some random command", HandlerFn).
+        HasCommand("cmd2", "another random command", HandlerFm).
+        HasCommand("fooCmd", "another one, it's another one!", HandlerFn)
 
-    cmd := prog.Command("cmd")
     // This is mainly for setting up the command specific usage texts
     // As well as simple validation that the user passes in numRequired <= len(args) <= numTotal arguments
-    cmd.HasRequiredArg("required", "some argument that is required to run the command")
-    cmd.HasOptionalArg("optionalArg", "some argument that is optional")
-    cmd.HasOptionalArg("optionalArg2", "some argument that is also optional")
+    cmd := prog.Command("cmd").
+        HasRequiredArg("required", "some argument that is required to run the command").
+        HasOptionalArg("optionalArg", "some argument that is optional").
+        HasOptionalArg("optionalArg2", "some argument that is also optional")
 
     // Will print main usage text
     fmt.Println(format)
