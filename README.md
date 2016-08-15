@@ -1,7 +1,7 @@
 # clite
 
-Super simple cli library for golang. You just declare what commands and arguments you have in a simple syntax.
-It doesn't handle flags (yet!), but personally I don't like them anyways because often times they
+Lightweight cli library for golang. You just declare what commands and arguments you have in a simple syntax.
+It doesn't handle flags (yet!), but personally I don't like them anyways because often times
 flags just aren't very descriptive.
 
 Mainly used for setting up simple clis with formatted usage displays, and hooking up simple handlers.
